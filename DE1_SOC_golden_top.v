@@ -16,7 +16,7 @@ module DE1_SOC_golden_top(
 	input 		[0:0]KEY
 );
 	
-	uart_tx #(.CLKS_PER_BIT(87)) u0	(.i_Clock(CLOCK_50),
+	uart_tx #(.CLKS_PER_BIT(1)) u0	(.i_Clock(CLOCK_50),
 												 .i_Tx_DV(SW[0]),
 												 .i_Tx_Byte(SW[8:1]),
 												 .o_Tx_Active(),
@@ -24,7 +24,7 @@ module DE1_SOC_golden_top(
 												 .o_Tx_Done()
 												);
 
-	uart_rx #(.CLKS_PER_BIT(87)) u1	(.KEY_rst(KEY[0]),
+	uart_rx #(.CLKS_PER_BIT(1)) u1	(.KEY_rst(KEY[0]),
 												 .i_Clock(CLOCK_50),
 												 .i_Rx_Serial(GPIO_0[1]),
 												 .o_Rx_DV(),
